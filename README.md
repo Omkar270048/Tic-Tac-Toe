@@ -1,12 +1,7 @@
 # Tic-Tac-Toe
 
-{
 
-  "color": "blue",
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
-  "status": "$39,333.7",
 
-"subject": "Bitcoin Price USD"
-
-}
 This is a tic tac toe game.
