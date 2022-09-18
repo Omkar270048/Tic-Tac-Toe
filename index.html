@@ -8,35 +8,35 @@
         <script src='script.js'></script>
         <link rel='stylesheet' href='style.css'>
     </head>
-    <body align=center>
- 
-    
-<div id="top">Multiplayer Tic Tac Toe Game</div>
-  <div id=main>
-      <div class=box id=b1></div>
-      <div class=box id=b2></div>
-      <div class=box id=b3></div>
+    <body>
+ <div class="game">
+   <div class="score-board flex well">
+       <div class="flex">
+           <p><b>Player 1:</b></p>
+           <p id="score1">0</p>
+       </div>
        
-      <div class=box id=b4></div>
-      <div class=box id=b5></div>
-      <div class=box id=b6></div>
-      
-      <div class=box id=b7></div>
-      <div class=box id=b8></div>
-      <div class=box id=b9></div>
-      
-  </div>
-  <div id=anchor> 
-  <a href="https://codepen.io/Omkar_A270048">
-      <img src="https://dl.dropbox.com/s/oox6c969t6s3fu8/1607367021737.png" id=img1>
-  </a>
-  
-<a href="https://www.sololearn.com/Profile/17438977/?ref=app">    
-      <img src="https://dl.dropbox.com/s/tenh1njwn2eb68i/1607366668366.png"
-      id=img2>
-  </a>  
- </div>
- 
-<button id="reset">Reset</button>
+       <div class="flex">
+           <p><b>Player 2:</b></p>
+           <p id="score2">0</p>
+       </div>   
+   </div> 
+    
+        <div id="box" class="container well">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<div class="flex well">
+    <button id="btn-reset" class="well">Reset</button>
+</div>
+</div>
     </body>
 </html>
