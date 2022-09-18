@@ -1,162 +1,119 @@
 
+var player1="X", player2="O";
+var flag = player1;
+var p1Score=0;
+var p2Score=0;
 
-function play(){
-    var w = window.innerWidth;
-    var h = window.innerHeight;
-    var box = w/ 4
-    var change = "X"
-    var next = 0
+
+function change(){
+   if(flag==player1){
+       flag=player2;
+   }else{
+       flag=player1;
+   }
+}
+
+function checker(){
+    const box = document.getElementById("box").children;
     
+    const pId1 = document.getElementById("score1");
+    const pId2 = document.getElementById("score2");    
     
-    $(function(){
+    // horizontal checking
+    for(var x=0;x<9;x+=3){
+        if (box[x].innerText!="" 
+    && box[x].innerText==box[x+1].innerText && box[x].innerText==box[x+2].innerText){
     
-    function game(){
-    
-    //reset
-    $("#reset").click(function(){
-    for(re = 1; re <= 9; re++){
-       $("#b" + re.toString()).html("");
-    }   });
-    
-    
-    //game working
-    if($("#b1").html() ==  "O" && $("#b2").html() == "O" && $("#b3").html() == "O"){
-        alert("O win"); next = 1}
-        
-    else if($("#b1").html() ==  "X" && $("#b2").html() == "X" && $("#b3").html() == "X"){
-        alert("X win");}
-        
-    else if($("#b4").html() ==  "O" && $("#b5").html() == "O" && $("#b6").html() == "O"){
-        alert("O win");}
-        
-    else if($("#b4").html() ==  "X" && $("#b5").html() == "X" && $("#b6").html() == "X"){
-        alert("X win");}    
-    
-    else if($("#b7").html() ==  "O" && $("#b8").html() == "O" && $("#b9").html() == "O"){
-        alert("O win");}
-        
-    else if($("#b7").html() ==  "X" && $("#b8").html() == "X" && $("#b9").html() == "X"){
-        alert("X win");}
-        
-        
-    else if($("#b1").html() ==  "O" && $("#b5").html() == "O" && $("#b9").html() == "O"){
-        alert("O win");}
-        
-    else if($("#b1").html() ==  "X" && $("#b5").html() == "X" && $("#b9").html() == "X"){
-        alert("X win");}
-        
-    else if($("#b3").html() ==  "O" && $("#b5").html() == "O" && $("#b7").html() == "O"){
-        alert("O win");}
-        
-    else if($("#b3").html() ==  "X" && $("#b5").html() == "X" && $("#b7").html() == "X"){
-        alert("X win");}
-    
-    else if($("#b1").html() ==  "O" && $("#b4").html() == "O" && $("#b7").html() == "O"){
-        alert("O win"); }
-        
-    else if($("#b1").html() ==  "X" && $("#b4").html() == "X" && $("#b7").html() == "X"){
-        alert("X win"); }
-        
-    else if($("#b2").html() ==  "O" && $("#b5").html() == "O" && $("#b8").html() == "O"){
-        alert("O win"); }
-        
-    else if($("#b2").html() ==  "X" && $("#b5").html() == "X" && $("#b8").html() == "X"){
-        alert("X win"); }
-    
-    else if($("#b3").html() ==  "O" && $("#b6").html() == "O" && $("#b9").html() == "O"){
-        alert("O win");}
-        
-    else if($("#b3").html() ==  "X" && $("#b6").html() == "X" && $("#b9").html() == "X"){
-        alert("X win");}
-    
-    else if($("#b1").html() != "" &&
-    $("#b2").html() != "" && $("#b3").html() != "" && $("#b4").html() != "" && $("#b5").html() != "" && $("#b6").html() != "" && $("#b7").html() != "" && $("#b8").html() != "" && $("#b9").html() != ""){
-        alert("Game is draw");
+    if(flag==player1){
+        p1Score +=1;
+        pId1.innerText = p1Score;
+        alert("Player1 win");
+        //alert(p1Score);
+    }else{
+        p2Score +=1;
+        pId2.innerText = p2Score;
+        alert("Player2 win");
+    }     
     }
+    }  
     
-    //________________
-    if(change == "X"){
-          change = "O"
-      }
-      else{
-      change = "X"}
+    //verticle checking
+     for(var x=0;x<3;x++){
+        if (box[x].innerText!="" 
+    && box[x].innerText==box[x+3].innerText && box[x].innerText==box[x+6].innerText){
     
+    if(flag==player1){
+        p1Score +=1;
+        pId1.innerText = p1Score;
+        alert("Player1 win");
+    }else{
+        p2Score +=1;
+        pId2.innerText = p2Score;
+        alert("Player2 win");
+    }     
     }
-    //.............
+    }       
+
+//diagonal top left to bottom right
+if (box[0].innerText!="" 
+    && box[0].innerText==box[4].innerText && box[0].innerText==box[8].innerText){
     
-        $("#main").css({"width": w-50, "position":"relative", "top":"30px", "left": w*0.05});
+    if(flag==player1){
+        p1Score +=1;
+        pId1.innerText = p1Score;
+        alert("Player1 win");
+    }else{
+        p2Score +=1;
+        pId2.innerText = p2Score;
+        alert("Player2 win");
+    }     
+    }  
+    
+// diagonal top right to bottom left
+if (box[2].innerText!="" 
+    && box[2].innerText==box[4].innerText && box[2].innerText==box[6].innerText){
+    
+    if(flag==player1){
+        p1Score +=1;
+        pId1.innerText = p1Score;
+        alert("Player1 win");
+    }else{
+        p2Score +=1;
+        pId2.innerText = p2Score;
+        alert("Player2 win");
+    }     
+    }    
+
+}
+
+//clicked
+function clicked(x){
+x.addEventListener('click', () => {
+    if(x.innerText == ""){
+        x.innerText = flag;
+        checker();
+        change();
         
-      $(".box").css({"width": box, "height": box});
-     
-     // clicks........ 
-    $("#b1").click(function(){
-    if($("#b1").html() == ""){
-      $("#b1").html(change);
-      game()}
-     
-      
-    });
-    
-    $("#b2").click(function(){
-      if($("#b2").html() == ""){
-      $("#b2").html(change);
-     game() }
-     
-    });
-    
-    $("#b3").click(function(){
-      if($("#b3").html() == ""){
-      $("#b3").html(change);
-      game()} 
-    
-    });
-    
-    $("#b4").click(function(){
-      if($("#b4").html() == ""){
-      $("#b4").html(change);game()}
-      
-    });
-    
-       
-    $("#b5").click(function(){
-      if($("#b5").html() == ""){
-      $("#b5").html(change);
-      game()}
-     
-    });
-    
-    $("#b6").click(function(){
-      if($("#b6").html() == ""){
-      $("#b6").html(change);
-      game()}
-     
-    });
-    
-    $("#b7").click(function(){
-      if($("#b7").html() == ""){
-      $("#b7").html(change);
-      game()}
-      
-    });
-    
-    $("#b8").click(function(){
-      if($("#b8").html() == ""){
-      $("#b8").html(change);
-      game()}
-      
-    });
-    
-    $("#b9").click(function(){
-      if($("#b9").html() == ""){
-      $("#b9").html(change);
-      game()}
-     
-    }); 
-    
-    });
     }
-    
-    
-    play()
-    
-    
+});
+}
+
+
+onload = function start(){
+const box = document.getElementById("box").children;
+const btnReset = document.getElementById("btn-reset");
+
+
+for(var x=0; x<9; x++){
+    clicked(box[x]);
+}
+
+btnReset.onclick=()=>{
+   for(var x=0;x<9;x++){
+        box[x].innerText = "";
+        start(); 
+    }
+    //btnReset.style.backgroundColor = "red";
+}
+
+}
