@@ -108,12 +108,17 @@ for(var x=0; x<9; x++){
     clicked(box[x]);
 }
 
-btnReset.onclick=()=>{
+btnReset.onmousedown=()=>{
+btnReset.classList.add("dark-blue");
    for(var x=0;x<9;x++){
         box[x].innerText = "";
         start(); 
     }
     //btnReset.style.backgroundColor = "red";
+}
+
+btnReset.onmouseup=()=>{
+    btnReset.classList.remove("dark-blue");
 }
 
 }
